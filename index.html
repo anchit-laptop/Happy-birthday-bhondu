@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Dikshita 💙</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:system-ui,Arial,sans-serif;
+background:linear-gradient(180deg,#021b2a,#0a4b63,#74d2e7);
+color:white;overflow-x:hidden;
+}
+.hero{
+min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.card{
+width:min(92%,850px);
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.25);
+border-radius:28px;
+padding:30px;
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+text-align:center;
+}
+h1{font-size:clamp(2.2rem,7vw,4rem);margin:0}
+.subtitle{opacity:.9}
+.btn{
+padding:14px 22px;border:none;border-radius:999px;cursor:pointer;
+margin:8px;font-size:1rem;
+}
+.gallery{
+display:grid;grid-template-columns:1fr;gap:20px;padding:20px;
+max-width:900px;margin:auto;
+}
+.gallery img{
+width:100%;border-radius:22px;cursor:pointer;
+transition:.3s;
+}
+.gallery img:hover{transform:scale(1.02)}
+.message{
+max-width:900px;margin:30px auto;padding:25px;
+background:rgba(255,255,255,.1);border-radius:24px;
+}
+.lightbox{
+display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);
+align-items:center;justify-content:center;z-index:100;
+}
+.lightbox img{max-width:95%;max-height:95%}
+.wave{
+position:fixed;bottom:0;left:0;width:200%;height:120px;
+background:rgba(255,255,255,.15);
+border-radius:45%;
+animation:wave 12s linear infinite;
+}
+@keyframes wave{
+from{transform:translateX(0)}
+to{transform:translateX(-50%)}
+}
+#letter{display:none;margin-top:20px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="card">
+    <h1>🌊 Happy Birthday Dikshita 🌊</h1>
+    <p class="subtitle">A small ocean of memories, wishes, and love.</p>
+
+    <button class="btn" onclick="music.play()">🎵 Play 'In The Pool'</button>
+    <button class="btn" onclick="showLetter()">💌 Open Letter</button>
+
+    <div id="letter">
+      <p>
+      Despite every problem and misunderstandings we had, I still love you and always will.
+      I want you to enjoy this day and the rest of your life at its fullest.
+      I hope life brings you joy, and the only time a tear falls is a tear of joy.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="message">
+<h2>📸 Our Memories</h2>
+<p>Tap the photo to view it in full screen.</p>
+</div>
+
+<div class="gallery">
+<img src="memory.webp" onclick="openImg(this.src)">
+</div>
+
+<audio id="music" src="in_the_pool.mp3"></audio>
+
+<div class="lightbox" id="lb" onclick="this.style.display='none'">
+<img id="lbimg">
+</div>
+
+<div class="wave"></div>
+
+<script>
+function openImg(src){
+ document.getElementById('lb').style.display='flex';
+ document.getElementById('lbimg').src=src;
+}
+function showLetter(){
+ const l=document.getElementById('letter');
+ l.style.display=l.style.display==='block'?'none':'block';
+}
+</script>
+</body>
+</html>
